@@ -22,13 +22,12 @@ jobs:
           git config --global user.name "<name>"
 
           # create a new branch
-          git switch -c staging/${{ github.sha }}
+          git switch staging/${{ github.sha }}
 
           # promote the change
           rsync -av --delete app/environments/development/ app/environments/staging/
 
           # push the change to the new branch
-          git add app/environments/staging/version.yaml
           git commit -m "Promote development to staging"
           git push -u origin staging/${{ github.sha }}          
       - run: |
