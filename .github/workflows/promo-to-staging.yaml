@@ -1,4 +1,4 @@
-name: Promote to staging
+name: Promote from Dev Branch to Staging
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           git push -u origin staging-${{ github.sha }}
           
       - run: |
-          echo "gh pr create "
+          echo "Create PR "
           gh pr create \
             -B staging \
             -H staging-${{ github.sha }} \
