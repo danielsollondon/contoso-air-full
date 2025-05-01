@@ -31,10 +31,12 @@ jobs:
           git add .
 
           # push the change to the new branch
-          git fetch --prune
+          echo "push the change to the new branch"
           git commit -m "Promote development to staging"
-          git push -u origin staging/${{ github.sha }}     
+          git push -u origin staging/${{ github.sha }}
+          
       - run: |
+          echo "gh pr create "
           gh pr create \
             -B staging \
             -H staging/${{ github.sha }} \
