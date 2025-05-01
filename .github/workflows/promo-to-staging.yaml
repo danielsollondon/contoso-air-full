@@ -5,7 +5,7 @@ on:
     branches:
       - development
     paths:
-      - app/environments/development/**
+      - 'app/environments/development/**'
 
 permissions:
   contents: write
