@@ -22,7 +22,7 @@ jobs:
           git config --global user.name "<name>"
 
           # create a new branch
-          git switch staging/${{ github.sha }}
+          git switch staging
 
           # promote the change
           rsync -av --delete app/environments/development/ app/environments/staging/
