@@ -1,0 +1,41 @@
+name: Promote from Staging to Production
+
+on:
+  pull_request:
+    types:
+      - closed
+    paths:
+      - 'app/environments/development/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  promote-stage-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          # configure git client
+          git config --global user.email "<email address>"
+          git config --global user.name "<name>"
+
+          # create a new branch
+          git switch -c production-${{ github.sha }}
+
+          # promote the change
+          rsync -av --delete app/environments/staging/ app/environments/production/
+
+          # push the change to the new branch
+          git add .
+          git commit -m "Promote staging to production"
+          git push -u origin production-${{ github.sha }}          
+      - run: |
+          gh pr create \
+            -B main \
+            -H production-${{ github.sha }} \
+            --title "Promote staging to production" \
+            --body "Automatically created by GHA"          
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
