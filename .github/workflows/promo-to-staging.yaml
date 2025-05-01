@@ -33,7 +33,7 @@ jobs:
           git push -u origin staging/${{ github.sha }}          
       - run: |
           gh pr create \
-            -B main \
+            -B staging \
             -H staging/${{ github.sha }} \
             --title "Promote development to staging" \
             --body "Automatically created by GitHub Actions"          
