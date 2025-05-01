@@ -33,7 +33,7 @@ jobs:
           # push the change to the new branch
           echo "push the change to the new branch"
           git commit -m "Promote development to staging"
-          git push -u origin staging/${{ github.sha }}
+          git push -u origin staging
           
       - run: |
           echo "gh pr create "
