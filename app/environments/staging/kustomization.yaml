@@ -6,3 +6,5 @@ resources:
   - configmap.yaml
   - secrets.yaml
   - v2-config-map.yaml
+  - v3-config-map.yaml
+
