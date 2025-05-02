@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: v5-service-config
-  namespace: ${NAMESPACE}
-data:
-  # property-like keys; each key maps to a simple value
-  timeout: "3"
