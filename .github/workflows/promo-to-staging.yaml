@@ -32,7 +32,7 @@ jobs:
 
           # push the change to the new branch
           echo "push the change to the new branch"
-          git commit -m "Promote development to staging"
+          git commit -m "Code Promomtion"
           git push -u origin staging-${{ github.sha }}
           
       - run: |
@@ -40,7 +40,7 @@ jobs:
           gh pr create \
             -B staging \
             -H staging-${{ github.sha }} \
-            --title "Promote development to staging" \
+            --title "Code Promotion - REVIEW" \
             --body "Automatically created by GitHub Actions"          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
