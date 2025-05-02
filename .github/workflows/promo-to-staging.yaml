@@ -28,7 +28,7 @@ jobs:
           rsync -av --delete app/environments/development/ app/environments/staging/
 
           # add config
-          git add .
+          git add app/environments/staging/\*
 
           # push the change to the new branch
           echo "push the change to the new branch"
