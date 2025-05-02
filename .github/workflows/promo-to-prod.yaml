@@ -28,7 +28,7 @@ jobs:
           rsync -av --delete app/environments/staging/ app/environments/production/
 
           # push the change to the new branch
-          git add .
+          git add app/environments/production/\*
           git commit -m "Promote staging to production"
           git push -u origin production-${{ github.sha }}          
       - run: |
