@@ -5,3 +5,4 @@ resources:
   - service.yaml
   - configmap.yaml
   - secrets.yaml
+  - v2-config-map.yaml
