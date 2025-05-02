@@ -7,3 +7,4 @@ resources:
   - secrets.yaml
   - v10-config-map.yaml
   - v11-config-map.yaml
+  - v12-config-map.yaml
