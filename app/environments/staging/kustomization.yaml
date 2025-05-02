@@ -6,3 +6,4 @@ resources:
   - configmap.yaml
   - secrets.yaml
   - v10-config-map.yaml
+  - v11-config-map.yaml
