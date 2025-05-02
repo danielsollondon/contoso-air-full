@@ -18,7 +18,7 @@ metadata:
     kubernetes.azure.com/generator: devhub
     azure.workload.identity/use: "true"
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: contoso-air-base
